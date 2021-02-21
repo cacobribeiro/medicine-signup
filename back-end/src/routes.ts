@@ -10,6 +10,6 @@ route.get('/', UserController.getAllDoctors)
 route.post('/register', UserController.registerOnDoctor)
 
 // Rota que atualiza um médico
-route.put('/update', UserController.updateADoctor)
+route.put('/update/:id', UserController.updateADoctor)
 
 export default route

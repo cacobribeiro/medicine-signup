@@ -32,8 +32,17 @@ class UserController {
   }
 
   // Atualiza um medico pelo ID
-  public updateADoctor (req : Request, res: Response): void {
-    res.status(200).json({ message: 'Update a Doctor' })
+  public async updateADoctor (req : Request, res: Response): Promise<Response> {
+    try {
+      const { id } = req.params
+      await User.update({ ...req.body }, { where: { id } })
+      const refresh = await User.findOne({ where: { id } })
+      return res.status(200).json(refresh)
+    } catch (error) {
+      error.sql
+        ? res.status(400).json({ message: 'CRM já cadastrado' })
+        : res.status(400).json({ message: error.message })
+    }
   }
 }
 
