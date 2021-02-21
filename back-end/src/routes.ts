@@ -6,6 +6,10 @@ const route = Router()
 // Rota que traz todos os médicos cadastrados.
 route.get('/', UserController.getAllDoctors)
 
+// Rota que traz todos os médicos cadastrados.
+route.get('/search', UserController.getADoctor)
+route.post('/search', UserController.getADoctor)
+
 // Rota que registra um novo médico.
 route.post('/register', UserController.registerOnDoctor)
 

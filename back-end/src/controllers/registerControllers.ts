@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { Op } from 'sequelize'
 
 import RegisterValidation from '../yup/RegisterValidation'
 import { User } from '../../models'
@@ -6,8 +7,15 @@ import { User } from '../../models'
 class UserController {
   // Retorna todos os Medicos
   public async getAllDoctors (req : Request, res: Response): Promise<Response> {
+    const allUsers = await User.findAll()
+    return res.status(200).json(allUsers)
+  }
+
+  // Busca o medico especifico
+  public async getADoctor (req : Request, res: Response): Promise<Response> {
     try {
-      const allUsers = await User.findAll()
+      const { searchType, search } = req.body
+      const allUsers = await User.findAll({ where: { [searchType]: { [Op.substring]: search } } })
       return res.status(200).json(allUsers)
     } catch (error) {
       console.log(error)
