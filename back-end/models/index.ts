@@ -1,5 +1,6 @@
 import * as sequelize from 'sequelize'
 import { Register } from './register'
+import { allJobs } from './jobs'
 
 export const dbConfig = new sequelize.Sequelize(
   {
@@ -18,3 +19,4 @@ export const dbConfig = new sequelize.Sequelize(
 )
 
 export const User = Register(dbConfig)
+export const Jobs = allJobs(dbConfig)
