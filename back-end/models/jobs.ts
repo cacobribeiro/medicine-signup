@@ -13,7 +13,7 @@ export type UserStatic = typeof Model & {
 };
 
 export function allJobs (sequelize: Sequelize): UserStatic {
-  return <UserStatic>sequelize.define('especialidade', {
+  return <UserStatic>sequelize.define('especialidades', {
     id: DataTypes.STRING,
     especialidade: DataTypes.STRING
   },
