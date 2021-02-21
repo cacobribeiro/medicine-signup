@@ -12,4 +12,7 @@ route.post('/register', UserController.registerOnDoctor)
 // Rota que atualiza um médico
 route.put('/update/:id', UserController.updateADoctor)
 
+// Rota que deleta um médico
+route.delete('/delete/:id', UserController.deleteADoctor)
+
 export default route

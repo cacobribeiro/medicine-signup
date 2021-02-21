@@ -1,18 +1,14 @@
 import { Request, Response } from 'express'
 
 import RegisterValidation from '../yup/RegisterValidation'
-// const { Op } = require('sequelize');
-// const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 import { User } from '../../models'
-// const findCep = require('../services/API_Correios');
-// const concaAndress = require('../services/concaAndress');
 
 class UserController {
   // Retorna todos os Medicos
   public async getAllDoctors (req : Request, res: Response): Promise<Response> {
     try {
       const allUsers = await User.findAll()
-      return res.status(200).json({ allUsers })
+      return res.status(200).json(allUsers)
     } catch (error) {
       console.log(error)
     }
@@ -43,6 +39,12 @@ class UserController {
         ? res.status(400).json({ message: 'CRM já cadastrado' })
         : res.status(400).json({ message: error.message })
     }
+  }
+
+  public async deleteADoctor (req: Request, res : Response): Promise<Response> {
+    const { id } = req.params
+    await User.destroy({ where: { id } })
+    return res.status(202).json({ messsage: 'Deleted' })
   }
 }
 
