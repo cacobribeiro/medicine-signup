@@ -16,10 +16,6 @@ npm install
 
 Todas dependencias serão instaladas.
 
-```sh
-npm install
-```
-
 Então:
 
 ```sh
@@ -41,7 +37,7 @@ Dentro da pasta `sh ./front-end ` contém os HTML feitos para melhorar a visuali
 
 
 - GET
-Rota inicial, traz todos os registros no banco de dados.
+Rota inicial traz todos os registros do banco de dados.
 
 ```sh
 http://localhost:6124/
