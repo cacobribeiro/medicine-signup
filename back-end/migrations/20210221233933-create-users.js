@@ -33,6 +33,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
+      numero: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       especialidade: {
         type: Sequelize.STRING,
         allowNull: true

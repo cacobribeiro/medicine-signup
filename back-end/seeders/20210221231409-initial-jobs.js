@@ -4,22 +4,28 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('especialidades', [
       {
-        id: '1', especialidade: 'ALERGOLOGIA'
+        especialidade: 'ALERGOLOGIA'
       },
       {
-        id: '2', especialidade: 'ANGIOLOGIA'
-      }, {
-        id: '3', especialidade: 'BUCO MAXILO'
-      }, {
-        id: '4', especialidade: 'CARDIOLOGIA CLÍNICA'
-      }, {
-        id: '5', especialidade: 'CARDIOLOGIA INFANTIL'
-      }, {
-        id: '6', especialidade: 'CIRURGIA CABEÇA E PESCOÇO'
-      }, {
-        id: '7', especialidade: 'CIRURGIA CARDÍACA'
-      }, {
-        id: '8', especialidade: 'CIRURGIA DE TÓRAX'
+        especialidade: 'ANGIOLOGIA'
+      },
+      {
+        especialidade: 'BUCO MAXILO'
+      },
+      {
+        especialidade: 'CARDIOLOGIA CLÍNICA'
+      },
+      {
+        especialidade: 'CARDIOLOGIA INFANTIL'
+      },
+      {
+        especialidade: 'CIRURGIA CABEÇA E PESCOÇO'
+      },
+      {
+        especialidade: 'CIRURGIA CARDÍACA'
+      },
+      {
+        especialidade: 'CIRURGIA DE TÓRAX'
       }
     ], {})
   },

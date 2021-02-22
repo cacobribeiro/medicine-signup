@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import UserController from './controllers/registerControllers'
+import JobsController from './controllers/jobsController'
 
 const route = Router()
 
@@ -18,5 +19,8 @@ route.put('/update/:id', UserController.updateADoctor)
 
 // Rota que deleta um médico
 route.delete('/delete/:id', UserController.deleteADoctor)
+
+// Rota para enviar os cargos
+route.get('/register', JobsController.getAllJobs)
 
 export default route
