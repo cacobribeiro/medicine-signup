@@ -26,6 +26,7 @@ class UserController {
   // Cadastra um novo medico
   public async registerOnDoctor (req : Request, res: Response): Promise<Response> {
     try {
+      console.log('CHAMOU', req)
       await RegisterValidation({ ...req.body })
       const userStatus = await User.create({ ...req.body })
       return res.status(201).json(userStatus)

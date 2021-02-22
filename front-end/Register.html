@@ -12,10 +12,43 @@
     />
   </head>
   <script>
-    window.onload = () => {
-      const test = 'test';
-      const data = new FormData('data', test);
-      fetch('http://localhost:6124/register', { method: 'POST', body: data });
+    const regexCEP = /^\d{5}-\d{3}$/;
+
+    const searchAndress = (input) => {
+      const andress = document.getElementById('andress');
+      if (regexCEP.test(input)) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `https://viacep.com.br/ws/${input}/json/`);
+        xhr.responseType = 'json';
+        xhr.send();
+        xhr.onload = () => (andress.value = xhr.response.logradouro.toString());
+      }
+    };
+
+    window.onload = async () => {
+      const select = document.getElementById('selects-div');
+
+      const data = await fetch('http://localhost:6124/register').then((data) => data.json());
+
+      const drop = document.querySelectorAll('.dropdown-toggle');
+      drop.forEach((drop) => {
+        data.forEach((job) => {
+          const option = document.createElement('option');
+          option.classList = 'dropdown-item';
+          option.value = job.especialidade;
+          option.innerHTML = job.especialidade;
+          drop.appendChild(option);
+        });
+      });
+
+      const btn = document.getElementById('btn-send');
+      btn.addEventListener('click', () => {
+        const form = new FormData(document.getElementById('form'));
+        fetch('http://localhost:6124/register', { method: 'POST', body: form });
+      });
+
+      const cep = document.getElementById('CEP');
+      cep.addEventListener('change', () => searchAndress(cep.value));
     };
   </script>
   <body>
@@ -27,30 +60,55 @@
         <a class="font-weight-bold text-body" href="./Home.html">Home</a>
       </nav>
       <div class="container-sm mt-5 pt-2">
-        <form>
+        <form id="form" method="POST" action="http://localhost:6124/register">
           <div class="form-group">
             <label for="name">Nome</label>
-            <input type="name" class="form-control" id="name" />
+            <input required="required" type="name" class="form-control" id="name" />
           </div>
           <div class="form-group">
             <label for="CRM">CRM</label>
-            <input type="CRM" class="form-control" id="CRM" placeholder="xx.xxx.xx" />
+            <input
+              required="required"
+              type="CRM"
+              class="form-control"
+              id="CRM"
+              placeholder="xx.xxx.xx"
+            />
           </div>
           <div class="form-group">
             <label for="fixFone">Telefone Fixo</label>
-            <input type="fixFone" class="form-control" id="fixFone" placeholder="(xx) xxxx-xxxx" />
+            <input
+              required="required"
+              type="fixFone"
+              class="form-control"
+              id="fixFone"
+              placeholder="(xx) xxxx-xxxx"
+            />
           </div>
           <div class="form-group">
             <label for="fone">Celular</label>
-            <input type="fone" class="form-control" id="fone" placeholder="(xx) xxxxx-xxxx" />
+            <input
+              required="required"
+              type="fone"
+              class="form-control"
+              id="fone"
+              placeholder="(xx) xxxxx-xxxx"
+            />
           </div>
           <div class="form-group">
             <label for="CEP">CEP</label>
-            <input type="CEP" class="form-control" id="CEP" placeholder="xxxxx-xxx" />
+            <input
+              required="required"
+              type="CEP"
+              class="form-control"
+              id="CEP"
+              placeholder="xxxxx-xxx"
+            />
           </div>
           <div class="form-group">
             <label for="andress">Endereço</label>
             <input
+              required="required"
               disabled="disabled"
               type="andress"
               class="form-control"
@@ -60,10 +118,23 @@
           </div>
           <div class="form-group">
             <label for="numero">Número</label>
-            <input type="numero" class="form-control" id="numero" placeholder="XXX" />
+            <input
+              required="required"
+              type="numero"
+              class="form-control"
+              id="numero"
+              placeholder="XXX"
+            />
           </div>
-          <div id="selects-div"></div>
-          <button class="btn btn-primary" type="submit">Cadastrar</button>
+          <div id="selects-div">
+            <select class="btn btn-secondary dropdown-toggle" id="especialidade">
+              Especialidades 1
+            </select>
+            <select class="btn btn-secondary dropdown-toggle" id="especialidade2">
+              Especialidades 2
+            </select>
+          </div>
+          <button class="btn btn-primary mt-3" id="btn-send" type="submit">Cadastrar</button>
         </form>
       </div>
     </div>
