@@ -1,0 +1,314 @@
+{
+	"info": {
+		"_postman_id": "aa9bc659-c543-4381-83aa-5adf1c042962",
+		"name": "medice-gcb",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:6124/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:6124/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6124",
+					"path": [
+						""
+					]
+				},
+				"description": "TODOS OS MEDICOS"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:6124/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6124",
+							"path": [
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "http://localhost:6124/search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"searchType\": \"name\",\n    \"search\":\"Caio\",\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6124/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6124",
+					"path": [
+						""
+					]
+				},
+				"description": "TODOS OS MEDICOS"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:6124/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6124",
+							"path": [
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "http://localhost:6124/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Caio Ribeiro\",\n\"CRM\": \"22.656.56\",\n\"fixFone\": \"(11)5562-3284\",\n\"fone\": \"(11)97651-2702\",\n\"cep\": \"04651-165\",\n\"andress\": \"Rua Osmar Fregona\",\n\"numero\": 71,\n\"especialidade\": \"CARDIOLOGIA INFANTIL\",\n\"especialidade2\": \"CARDIOLOGIA CLÍNICA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6124/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6124",
+					"path": [
+						"register"
+					]
+				},
+				"description": "CADASTRA UM MEDICO"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:6124/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6124",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "http://localhost:6124/register",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:6124/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6124",
+					"path": [
+						""
+					]
+				},
+				"description": "TODOS OS MEDICOS"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:6124/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6124",
+							"path": [
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "http://localhost:6124/update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"Caio Ribeiro\",\n\"CRM\": \"22.656.56\",\n\"fixFone\": \"(11)5562-3284\",\n\"fone\": \"(11)97651-2702\",\n\"cep\": \"04651-165\",\n\"andress\": \"Rua Osmar Fregona\",\n\"numero\": 71,\n\"especialidade\": \"CARDIOLOGIA INFANTIL\",\n\"especialidade2\": \"CARDIOLOGIA CLÍNICA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6124/update/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6124",
+					"path": [
+						"update",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:6124/delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:6124/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6124",
+					"path": [
+						"delete",
+						"4"
+					]
+				},
+				"description": "TODOS OS MEDICOS"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:6124/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6124",
+							"path": [
+								""
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	]
+}
