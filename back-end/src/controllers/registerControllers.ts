@@ -14,11 +14,10 @@ class UserController {
   // Busca o medico especifico
   public async getADoctor (req : Request, res: Response): Promise<Response> {
     try {
-      // const { searchType, search } = req.body
+      const { searchType, search } = req.body
       console.log(req.body)
-      // const allUsers = await User.findAll({ where: { [searchType]: { [Op.substring]: search } } })
-      res.set('Access-Control-Allow-Headers', 'Content-Type')
-      return res.status(200).json('allUsers')
+      const allUsers = await User.findAll({ where: { [searchType]: { [Op.substring]: search } } })
+      return res.status(200).json(allUsers)
     } catch (error) {
       console.log(error)
     }

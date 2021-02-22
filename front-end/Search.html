@@ -18,13 +18,23 @@
       data.map((e) => {
         const mediaDiv = document.createElement('div');
         const h5 = document.createElement('h5');
+        const button = document.createElement('button');
+
+        button.classList = 'btn btn-danger'
+        button.innerHTML = 'Delete Doctor'
         mediaDiv.classList = 'media-body';
         h5.classList = 'h5';
         h5.innerText = JSON.stringify(e);
+
         mediaDiv.appendChild(h5);
+        mediaDiv.appendChild(button)
         container.appendChild(mediaDiv);
       });
     };
+
+    const deleteRequest = () => {
+        // Implementar função que envia um POST para o servidor deletar o usuario
+    }
 
     window.onload = () => {
       const drop = document.getElementById('drop');
@@ -51,6 +61,7 @@
       <nav class="navbar navbar-dark bg-primary">
         <a class="font-weight-bold text-body" href="./Search.html">Search</a>
         <a class="font-weight-bold text-body" href="./AllDoctors.html">Todos Registros</a>
+        <a class="font-weight-bold text-body" href="./Register.html">Register new Doctor</a>
         <a class="font-weight-bold text-body" href="./Home.html">Home</a>
       </nav>
       <div class="container-sm mt-5 pt-2">

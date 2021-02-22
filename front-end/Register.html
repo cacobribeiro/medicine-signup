@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GCB - Medicos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+  </head>
+  <script>
+    window.onload = () => {
+      const test = 'test';
+      const data = new FormData('data', test);
+      fetch('http://localhost:6124/register', { method: 'POST', body: data });
+    };
+  </script>
+  <body>
+    <div>
+      <nav class="navbar navbar-dark bg-primary">
+        <a class="font-weight-bold text-body" href="./Search.html">Search</a>
+        <a class="font-weight-bold text-body" href="./AllDoctors.html">Todos Registros</a>
+        <a class="font-weight-bold text-body" href="./Register.html">Register new Doctor</a>
+        <a class="font-weight-bold text-body" href="./Home.html">Home</a>
+      </nav>
+      <div class="container-sm mt-5 pt-2">
+        <form>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="name" class="form-control" id="name" />
+          </div>
+          <div class="form-group">
+            <label for="CRM">CRM</label>
+            <input type="CRM" class="form-control" id="CRM" placeholder="xx.xxx.xx" />
+          </div>
+          <div class="form-group">
+            <label for="fixFone">Telefone Fixo</label>
+            <input type="fixFone" class="form-control" id="fixFone" placeholder="(xx) xxxx-xxxx" />
+          </div>
+          <div class="form-group">
+            <label for="fone">Celular</label>
+            <input type="fone" class="form-control" id="fone" placeholder="(xx) xxxxx-xxxx" />
+          </div>
+          <div class="form-group">
+            <label for="CEP">CEP</label>
+            <input type="CEP" class="form-control" id="CEP" placeholder="xxxxx-xxx" />
+          </div>
+          <div class="form-group">
+            <label for="andress">Endereço</label>
+            <input
+              disabled="disabled"
+              type="andress"
+              class="form-control"
+              id="andress"
+              placeholder="Digite o CEP"
+            />
+          </div>
+          <div class="form-group">
+            <label for="numero">Número</label>
+            <input type="numero" class="form-control" id="numero" placeholder="XXX" />
+          </div>
+          <div id="selects-div"></div>
+          <button class="btn btn-primary" type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
