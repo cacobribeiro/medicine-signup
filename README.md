@@ -8,7 +8,7 @@ Basta clonar o repositorio.
 git clone git@github.com:cacobribeiro/medicine-signup.git
 ```
 
-Logo após, utilizar o seguinte comando:
+Logo após, utilizar o seguinte comando na raiz da pasta ``` /back-end ```:
 
 ```sh
 npm install

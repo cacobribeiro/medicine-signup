@@ -32,6 +32,8 @@ const schema = yup.object({
 type Person = Asserts<typeof schema>
 
 async function RegisterValidation (newUser: Person) : Promise<Person> {
+  console.log('VALID')
+
   return schema.validateSync(newUser)
 }
 

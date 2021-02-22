@@ -3,16 +3,17 @@ import { Op } from 'sequelize'
 
 import RegisterValidation from '../yup/RegisterValidation'
 import { User } from '../../models'
+import findByCep from '../services/findByCep'
 
 class UserController {
   // Retorna todos os Medicos
-  public async getAllDoctors (req : Request, res: Response): Promise<Response> {
+  public async getAllDoctors (req: Request, res: Response): Promise<Response> {
     const allUsers = await User.findAll()
     return res.status(200).json(allUsers)
   }
 
   // Busca o medico especifico
-  public async getADoctor (req : Request, res: Response): Promise<Response> {
+  public async getADoctor (req: Request, res: Response): Promise<Response> {
     try {
       const { searchType, search } = req.body
       const allUsers = await User.findAll({ where: { [searchType]: { [Op.substring]: search } } })
@@ -23,14 +24,15 @@ class UserController {
   }
 
   // Cadastra um novo medico
-  public async registerOnDoctor (req : Request, res: Response): Promise<Response> {
+  public async registerOnDoctor (req: Request, res: Response): Promise<Response> {
     try {
-      console.log('CHAMOU', req.body)
-      await RegisterValidation({ ...req.body })
-      const userStatus = await User.create({ ...req.body })
-      return res.status(201).json(userStatus)
+      // const isValid = await RegisterValidation({ ...req.body })
+      // if (isValid) {
+      // console.log('ISVALID')
+      await findByCep(req.body)
+      return res.status(201).json({ message: 'Médico cadastrado' })
+      // }
     } catch (error) {
-      console.log(error)
       error.sql
         ? res.status(400).json({ message: 'CRM já cadastrado' })
         : res.status(400).json({ message: error.message })
@@ -38,7 +40,7 @@ class UserController {
   }
 
   // Atualiza um medico pelo ID
-  public async updateADoctor (req : Request, res: Response): Promise<Response> {
+  public async updateADoctor (req: Request, res: Response): Promise<Response> {
     try {
       const { id } = req.params
       await User.update({ ...req.body }, { where: { id } })
@@ -51,7 +53,7 @@ class UserController {
     }
   }
 
-  public async deleteADoctor (req: Request, res : Response): Promise<Response> {
+  public async deleteADoctor (req: Request, res: Response): Promise<Response> {
     const { id } = req.params
     await User.destroy({ where: { id } })
     return res.status(202).json({ messsage: 'Deleted' })
