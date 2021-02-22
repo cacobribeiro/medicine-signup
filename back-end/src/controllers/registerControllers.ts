@@ -15,7 +15,6 @@ class UserController {
   public async getADoctor (req : Request, res: Response): Promise<Response> {
     try {
       const { searchType, search } = req.body
-      console.log(req.body)
       const allUsers = await User.findAll({ where: { [searchType]: { [Op.substring]: search } } })
       return res.status(200).json(allUsers)
     } catch (error) {
@@ -26,7 +25,7 @@ class UserController {
   // Cadastra um novo medico
   public async registerOnDoctor (req : Request, res: Response): Promise<Response> {
     try {
-      console.log('CHAMOU', req)
+      console.log('CHAMOU', req.body)
       await RegisterValidation({ ...req.body })
       const userStatus = await User.create({ ...req.body })
       return res.status(201).json(userStatus)

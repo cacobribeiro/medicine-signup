@@ -25,6 +25,18 @@
       }
     };
 
+    const geraForms = (select) => {
+      const obj = {};
+      const inputs = document.querySelectorAll('input');
+      inputs.forEach((input) => {
+        obj[input.id] = input.value;
+      });
+      select.forEach((input) => {
+        obj[input.id] = input.value;
+      });
+      return obj;
+    };
+
     window.onload = async () => {
       const select = document.getElementById('selects-div');
 
@@ -42,9 +54,17 @@
       });
 
       const btn = document.getElementById('btn-send');
-      btn.addEventListener('click', () => {
-        const form = new FormData(document.getElementById('form'));
-        fetch('http://localhost:6124/register', { method: 'POST', body: form });
+      btn.addEventListener('click', (event) => {
+        const results = geraForms(drop);
+        console.log(results);
+        fetch('http://localhost:6124/register', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8',
+          },
+          body: JSON.stringify(results),
+        }).catch((err) => console.log(err));
       });
 
       const cep = document.getElementById('CEP');
@@ -134,7 +154,7 @@
               Especialidades 2
             </select>
           </div>
-          <button class="btn btn-primary mt-3" id="btn-send" type="submit">Cadastrar</button>
+          <button class="btn btn-primary mt-3" id="btn-send" type="button">Cadastrar</button>
         </form>
       </div>
     </div>
