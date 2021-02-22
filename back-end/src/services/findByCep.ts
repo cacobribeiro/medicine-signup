@@ -1,6 +1,5 @@
 import { XMLHttpRequest } from 'xmlhttprequest'
 import { User } from '../../models'
-import RegisterValidation from '../yup/RegisterValidation'
 
 interface BodyUser {
   name: string,
@@ -15,7 +14,6 @@ interface BodyUser {
 }
 
 const findByCep = async (body: BodyUser): Promise<void> => {
-  console.log('começou')
   const url = 'https://viacep.com.br/ws/04651-160/json/'
   const xhr = new XMLHttpRequest()
   xhr.open('GET', url)
