@@ -30,6 +30,7 @@ class UserController {
       const userStatus = await User.create({ ...req.body })
       return res.status(201).json(userStatus)
     } catch (error) {
+      console.log(error)
       error.sql
         ? res.status(400).json({ message: 'CRM já cadastrado' })
         : res.status(400).json({ message: error.message })
