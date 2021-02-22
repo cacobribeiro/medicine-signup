@@ -29,6 +29,7 @@ export function Register (sequelize: Sequelize): UserStatic {
     },
     CRM: {
       type: DataTypes.STRING,
+      unique: true,
       validate: {
         len: [9, 9]
       }

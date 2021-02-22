@@ -26,16 +26,15 @@ class UserController {
   // Cadastra um novo medico
   public async registerOnDoctor (req: Request, res: Response): Promise<Response> {
     try {
-      // const isValid = await RegisterValidation({ ...req.body })
-      // if (isValid) {
-      // console.log('ISVALID')
+      await RegisterValidation({ ...req.body })
+      const isValid = await User.findOne({ where: { CRM: req.body.CRM } })
+      if (isValid) {
+        return res.status(400).json({ message: 'CRM já cadastrado' })
+      }
       await findByCep(req.body)
       return res.status(201).json({ message: 'Médico cadastrado' })
-      // }
     } catch (error) {
-      error.sql
-        ? res.status(400).json({ message: 'CRM já cadastrado' })
-        : res.status(400).json({ message: error.message })
+      return res.status(400).json({ message: error.message })
     }
   }
 

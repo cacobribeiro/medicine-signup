@@ -22,8 +22,6 @@ const findByCep = async (body: BodyUser): Promise<void> => {
   xhr.send()
 
   xhr.onload = async function () {
-    const isValid = await RegisterValidation({ ...body })
-    console.log('ISVALID', isValid)
     const andress = JSON.parse(xhr.responseText)
     const result = { ...body, andress: andress.logradouro }
     await User.create(result)
