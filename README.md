@@ -81,6 +81,26 @@ http://localhost:6124/register
 
 ----
 
+- GET
+Rota para realizar uma busca por qualquer termo escolhido.
+
+Dados a serem enviados:
+
+```sh
+{
+    "searchType": "name",
+    "search":"Vieira"
+}
+```
+Sendo: searchType um select com as opções de pesquisa
+search o termo buscado.
+
+```sh
+http://localhost:6124/search
+```
+
+----
+
 - PUT
 Rota para atualizar os dados de um médico existente.
 
