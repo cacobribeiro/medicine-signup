@@ -26,6 +26,11 @@ Isso irá iniciar o servidor back-end, criar todas as migrations e seeds.
 
 ---
 
+## Postman Routes
+
+Na raiz do projeto existe um arquivo para o Postman com a utilização das rotas: ```medice-gcb.postman_collection``` .
+---
+
 ### Front-end
 
 Dentro da pasta `sh ./front-end ` contém os HTML feitos para melhorar a visualização.
