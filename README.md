@@ -56,7 +56,6 @@ Dados a serem enviados:
 "fixFone": "(11)5562-3284",
 "fone": "(11)97651-2702",
 "cep": "04651-165",
-"andress": "Rua Osmar Fregona",
 "numero": 71,
 "especialidade": "CARDIOLOGIA INFANTIL",
 "especialidade2": "CARDIOLOGIA CLÍNICA"
@@ -89,7 +88,6 @@ Dados a serem enviados devem ser iguais ao de registro.
 "fixFone": "(11)5562-3284",
 "fone": "(11)97651-2702",
 "cep": "04651-165",
-"andress": "Rua Osmar Fregona",
 "numero": 71,
 "especialidade": "CARDIOLOGIA INFANTIL",
 "especialidade2": "CARDIOLOGIA CLÍNICA"
