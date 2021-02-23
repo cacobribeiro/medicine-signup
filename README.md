@@ -92,8 +92,7 @@ Dados a serem enviados:
     "search":"Vieira"
 }
 ```
-Sendo: searchType um select com as opções de pesquisa
-search o termo buscado.
+Sendo: searchType um select com as opções de pesquisa e search o termo buscado.
 
 ```sh
 http://localhost:6124/search
